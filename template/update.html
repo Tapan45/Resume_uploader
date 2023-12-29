@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container mb-5">
+        <h2 class ="alert-danger text-center p-3"> Update Resume</h2>
+        <div class="row">
+          <div class ="col-sm-8">
+
+         
+            <form method="post" id="tapu" action="" enctype="multipart/form-data" class="shadow p-5">
+
+        
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ obj.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" value="{{ obj.dob | date:"Y-m-d"}}"required>
+            </div>
+          
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" value="{{ obj.gender }}"required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="locality">Locality:</label>
+                <input type="text" class="form-control" id="locality" name="locality"value="{{ obj.locality }}" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" value="{{ obj.city }}" required>
+            </div>
+            <div class="form-group">
+                <label for="pin">PIN Code:</label>
+                <input type="number" class="form-control" id="pin" name="pin" value="{{ obj.pin }}" required>
+            </div>
+           
+            <div class="form-group" name="jobcity">
+                <label for="state">State:</label>
+                <select class="form-control" id="state" name="state" required>
+                    <option value="Andaman and Nicobar Islands" {% if obj.state == "Andaman and Nicobar Islands" %}selected{% endif %}>Andaman and Nicobar Islands</option>
+                    <option value="Andhra Pradesh" {% if obj.state == "Andhra Pradesh" %}selected{% endif %}>Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh" {% if obj.state == "Arunachal Pradesh" %}selected{% endif %}>Arunachal Pradesh</option>
+                    <option value="Assam" {% if obj.state == "Assam" %}selected{% endif %}>Assam</option>
+                    <option value="Bihar" {% if obj.state == "Bihar" %}selected{% endif %}>Bihar</option>
+                    <option value="Chandigarh" {% if obj.state == "Chandigarh" %}selected{% endif %}>Chandigarh</option>
+                    <option value="Chhattisgarh" {% if obj.state == "Chhattisgarh" %}selected{% endif %}>Chhattisgarh</option>
+                    <option value="Dadra and Nagar Haveli and Daman and Diu" {% if obj.state == "Dadra and Nagar Haveli and Daman and Diu" %}selected{% endif %}>Dadra and Nagar Haveli and Daman and Diu</option>
+                    <option value="Delhi (National Capital Territory of Delhi)" {% if obj.state == "Delhi (National Capital Territory of Delhi)" %}selected{% endif %}>Delhi</option>
+                    <option value="Goa" {% if obj.state == "Goa" %}selected{% endif %}>Goa</option>
+                    <option value="Gujarat" {% if obj.state == "Gujarat" %}selected{% endif %}>Gujarat</option>
+                    <option value="Haryana" {% if obj.state == "Haryana" %}selected{% endif %}>Haryana</option>
+                    <option value="Himachal Pradesh" {% if obj.state == "Himachal Pradesh" %}selected{% endif %}>Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir" {% if obj.state == "Jammu and Kashmir" %}selected{% endif %}>Jammu and Kashmir</option>
+                    <option value="Jharkhand" {% if obj.state == "Jharkhand" %}selected{% endif %}>Jharkhand</option>
+                    <option value="Karnataka" {% if obj.state == "Karnataka" %}selected{% endif %}>Karnataka</option>
+                    <option value="Kerala" {% if obj.state == "Kerala" %}selected{% endif %}>Kerala</option>
+                    <option value="Lakshadweep" {% if obj.state == "Lakshadweep" %}selected{% endif %}>Lakshadweep</option>
+                    <option value="Ladakh" {% if obj.state == "Ladakh" %}selected{% endif %}>Ladakh</option>
+                    <option value="Madhya Pradesh" {% if obj.state == "Madhya Pradesh" %}selected{% endif %}>Madhya Pradesh</option>
+                    <option value="Maharashtra" {% if obj.state == "Maharashtra" %}selected{% endif %}>Maharashtra</option>
+                    <option value="Manipur" {% if obj.state == "Manipur" %}selected{% endif %}>Manipur</option>
+                    <option value="Meghalaya" {% if obj.state == "Meghalaya" %}selected{% endif %}>Meghalaya</option>
+                    <option value="Mizoram" {% if obj.state == "Mizoram" %}selected{% endif %}>Mizoram</option>
+                    <option value="Nagaland" {% if obj.state == "Nagaland" %}selected{% endif %}>Nagaland</option>
+                    <option value="Odisha" {% if obj.state == "Odisha" %}selected{% endif %}>Odisha</option>
+                    <option value="Puducherry" {% if obj.state == "Puducherry" %}selected{% endif %}>Puducherry</option>
+                    <option value="Punjab" {% if obj.state == "Punjab" %}selected{% endif %}>Punjab</option>
+                    <option value="Rajasthan" {% if obj.state == "Rajasthan" %}selected{% endif %}>Rajasthan</option>
+                    <option value="Sikkim" {% if obj.state == "Sikkim" %}selected{% endif %}>Sikkim</option>
+                    <option value="Tamil Nadu" {% if obj.state == "Tamil Nadu" %}selected{% endif %}>Tamil Nadu</option>
+                    <option value="Telangana" {% if obj.state == "Telangana" %}selected{% endif %}>Telangana</option>
+                    <option value="Tripura" {% if obj.state == "Tripura" %}selected{% endif %}>Tripura</option>
+                    <option value="Uttar Pradesh" {% if obj.state == "Uttar Pradesh" %}selected{% endif %}>Uttar Pradesh</option>
+                    <option value="Uttarakhand" {% if obj.state == "Uttarakhand" %}selected{% endif %}>Uttarakhand</option>
+                    <option value="West Bengal" {% if obj.state == "West Bengal" %}selected{% endif %}>West Bengal</option>
+                </select>
+            </div>
+            
+
+
+
+
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" value="{{ obj.mobile }}"required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ obj.email }}" required>
+            </div>
+            <div class="form-group" name="jobcity1">
+                <label for="job_city">Preferred Job City:</label>
+                <div class="checkbox-group" name="jobcity1" multiple="multiple" required>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="Bangalore" {% if "Bangalore" in obj.job_city %}checked{% endif %}> Bangalore
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="Delhi" {% if "Delhi" in obj.job_city %}checked{% endif %}> Delhi
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="Pune" {% if "Pune" in obj.job_city %}checked{% endif %}> Pune
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="Kolkata" {% if "Kolkata" in obj.job_city %}checked{% endif %}> Kolkata
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="Bhubaneswar" {% if "Bhubaneswar" in obj.job_city %}checked{% endif %}> Bhubaneswar
+                    </label>
+                </div>
+                
+            </div>
+            
+
+            <div class="form-group">
+                <label for="profile_image">Profile Image:</label>
+                {% if obj.profile_image %}
+                    <p>Current Profile Image: <a href="{{ obj.profile_image.url }}">{{ obj.profile_image.url }}</a></p>
+                {% endif %}
+                <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+            </div>
+        
+            <div class="form-group">
+                <label for="my_file">Upload Resume:</label>
+                {% if obj.my_file %}
+                    <p>Current Resume: <a href="{{ obj.my_file.url }}">{{ obj.my_file.url }}</a></p>
+                {% endif %}
+                <input type="file" class="form-control-file" id="my_file" name="my_file">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+       

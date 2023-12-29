@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container mb-5">
+        <h2 class ="alert-danger text-center p-3">Resume Uploader</h2>
+        <div class="row">
+          <div class ="col-sm-8">
+
+         
+        
+        <form method="post" id ="tapu"action="{% url 'resumedata' %}" enctype="multipart/form-data" class ="shadow p-5">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+          
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="locality">Locality:</label>
+                <input type="text" class="form-control" id="locality" name="locality" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="pin">PIN Code:</label>
+                <input type="number" class="form-control" id="pin" name="pin" required>
+            </div>
+            <div class="form-group" name="jobcity">
+                <label for="state">State:</label>
+                <select class="form-control" id="state" name="state">
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                    <option value="Delhi (National Capital Territory of Delhi)">Delhi</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                
+
+
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group" name="jobcity1">
+                <label for="job_city">Preferred Job City:</label>
+                <div class="checkbox-group" name="jobcity1">
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="banglore"> Bangalore
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="delhi"> Delhi
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="pune"> Pune
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="kolkata"> Kolkata
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jobcity[]" value="bbsr"> Bhubaneswar
+                    </label>
+                   
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="profile_image">Profile Image:</label>
+                <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+            </div>
+
+            <div class="form-group">
+                <label for="my_file">Upload Resume:</label>
+                <input type="file" class="form-control-file" id="my_file" name="my_file">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+       
+
+        </div>
+        <div class="col-sm-4">
+            <form method="post" action="">
+                {% csrf_token %}
+                <a href="{% url 'show_resume' %}">
+                    <h4 class="text-center mb-3"><u>List of Candidates</u></h4>
+                </a>
+                {% with counter=1 %}
+                {% for candidate in Resume %}
+                <p>
+                     {{ forloop.counter }}  :
+                    <a href="{% url 'candidate_detail' candidate.id %}" style="margin-right: 98px;">{{ candidate.name }}</a>
+                    <a href="{% url 'update_data' candidate.id %}" class="btn btn-sm btn-primary "><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn btn-sm btn-danger " href="{% url 'delete_data' candi_id=candidate.id %}">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    
+                    <hr>
+                </p>
+                {% endfor %}
+                {% endwith %}
+            </form>
+        </div>
+        
+        
+</div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  // Wait for the DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Reference to the form
+    var form = document.getElementById('tapu');
+
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Show a SweetAlert confirmation
+      Swal.fire({
+        title: 'Are you sure you want to add this job?',
+        text: 'Click "Yes" to add the job, or "Cancel" to continue editing.',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Serialize the form data
+          var formData = new FormData(form);
+
+          // Send an AJAX request to the server
+          fetch("{% url 'resumedata' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+          })
+          .then(response => {
+            if (response.ok) {
+              // Form submission was successful
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Job submitted successfully!'
+              }).then(() => {
+                // Reload the page
+                location.reload();
+              });
+            } else {
+              // Form submission failed
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'There was an error submitting the job. Please try again.'
+              });
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'An unexpected error occurred. Please try again later.'
+            });
+          });
+        }
+      });
+    });
+  });
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
